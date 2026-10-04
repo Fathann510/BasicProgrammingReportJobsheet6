@@ -120,8 +120,11 @@ public class LogicalOperatorWifi12 {
 ```
 #### 2.2.2 Execution Result / Screenshot Output
 The following is an example of the *output* display after the program is run.:
+![Experiment2Output](/Experiment2OutputJobsheet6.png)
 
-
+#### 2.2.3 Answers to Questions / Reflection Questions
+* **Question 1:** Explain the function of the ||, &&, and ! operators in the condition above
+  * **Answer:** The process will still proceed to the guidance session, even if you enter the guidance
 ---
 
 ## 3: TUGAS MANDIRI
