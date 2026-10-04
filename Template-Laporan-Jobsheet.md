@@ -21,7 +21,7 @@ The following are the objectives of the practical work in this chapter:
 
 ### 2.1 Experiment 1: Nested IF to Check Thesis Exam Requirements.
 
-Ini adalah paragraf contoh yang menjelaskan gambaran singkat mengenai percobaan pertama. Pada bagian ini, mahasiswa diminta untuk menerapkan kondisi `if-else` sederhana.
+In this section, students are required to apply a *Nested IF* condition to check thesis exam requirements.
 
 #### 2.1.1 Program Code Java
 ```java
@@ -62,32 +62,65 @@ public class NestedThesisExam12 {
 
 ```
 
-#### 2.1.2 Hasil Running / Screenshot Output
-Berikut adalah contoh tampilan *output* setelah program dijalankan:
+#### 2.1.2 Execution Result / Screenshot Output
+The following is an example of the *output* display after the program is run.:
 
-![Contoh Gambar Output Percobaan 1](/contoh-gambar.png)
+![Experiment1Output](/Experiment1Output.png)
 
-#### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
-* **Pertanyaan 1:** Apa fungsi dari perintah `if`?
-  * **Jawab:** Perintah `if` digunakan untuk mengeksekusi sebuah blok kode hanya jika kondisi bernilai `true`.
-* **Pertanyaan 2:** Apa yang terjadi jika kondisi bernilai `false`?
-  * **Jawab:** Program akan melewati blok `if` dan mengeksekusi blok `else` (jika ada).
-
+#### 2.1.3 Answers to Questions / Reflection Questions
+* **Question 1:** What happens if the student answers "No" to the penalty-clearance question? Why?
+  * **Answer:** The process will still proceed to the guidance session, even if you enter the guidance session numbers, the result will still lead to the 'else' section, because the guidance session conditions are only checked when the penalty answer is 'Yes'.
+* **Question 2:** Explain the meaning of the following code snippet!
+  if (guidanceCount1 >= 8 && guidanceCount2 >= 4) {
+  * **Answer:** To check 2 conditions at the same time. If both requirements are met, the code inside the { } will be executed. Both conditions must be True.
+* **Question 3:** Describe the full flow of checking the student's requirements from start to finish. Explain
+step by step for every condition!
+  * **Answer:** The first one, we must enter the penalties, after we enter 'Yes', we are directed to the next statement. We must input the number of guidance session with supervisor 1 & 2.
+  * If the requirements of guidance session with supervisor 1 & 2 met, the output will display "All requirements met. The student may register for the thesis exam".
+  * If the requirements of guidance sessions with Supervisor 1 are below 8 and Supervisor 2 are below 4, the output will display "Failed! Guidance sessions with Supervisor 1 are below 8 and Supervisor 2 are below 4"
+  * If only the required number of guidance sessions with Supervisor 2 is met, but not with Supervisor 1, then the output will display "Failed! Guidance sessions with Supervisor 1 have not reached 8"
+  * If only the required number of guidance sessions with Supervisor 1 is met, but not with Supervisor 2, then the output will display "Failed! Guidance sessions with Supervisor 2 have not reached 4"
+  * Otherwise if the student hasn't cleared all the penalties, the output will display "Failed! The student still has an outstanding penalty" 
 ---
 
-### 2.2 Percobaan 2: Penerapan Structure SWITCH-CASE
+### 2.2 Experiment 2: Logical Operators to Determine Campus WiFi Access
 
 Paragraf ini menjelaskan ringkasan Percobaan 2. Percobaan ini berfokus pada penggunaan `switch-case` untuk memilih menu atau opsi berdasarkan nilai yang bersifat spesifik.
 
-#### 2.2.1 Tabel Pengujian Parameter Output
+#### 2.2.1 Program Code Java
+```java
 
-Berikut adalah hasil uji coba program dengan beberapa variasi masukan *dummy*:
+package Week6;
+import java.util.Scanner;
 
-| No | Input Parameter | Output yang Dihasilkan | Status Eksekusi |
-| :---: | :--- | :--- | :---: |
-| 1 | `Case 1` | "Pilihan 1 Dipilih" | Valid |
-| 2 | `Case 2` | "Pilihan 2 Dipilih" | Valid |
-| 3 | `Default` | "Pilihan Tidak Tersedia" | Invalid |
+public class LogicalOperatorWifi12 {
+    public static void main(String[] args) {
+     Scanner input = new Scanner(System.in);
+
+     boolean isStudent;
+     boolean isLecturer;
+     boolean isBlocked;
+
+     System.out.println("--- Wifi Access System ---");
+     System.out.print("Is the user a student? (true/false): ");
+     isStudent = input.nextBoolean();
+     System.out.print("Is the user a lecturer? (true/false): ");
+     isLecturer = input.nextBoolean();
+     System.out.print("Is the account currently blocked? (true/false): ");
+     isBlocked = input.nextBoolean();
+
+     if ((isStudent || isLecturer) && !isBlocked) {
+        System.out.println("Wifi Access Granted");
+     } else {
+        System.out.println("Wifi Access Denied");
+     }
+     input.close();
+ }
+}
+```
+#### 2.2.2 Execution Result / Screenshot Output
+The following is an example of the *output* display after the program is run.:
+
 
 ---
 
