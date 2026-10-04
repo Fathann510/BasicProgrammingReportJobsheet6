@@ -1,46 +1,65 @@
-# JOBSHEET 4 - PEMILIHAN 1
+# JOBSHEET 6 - SELECTION 2
 
-**Identitas Mahasiswa:**
-* **Nama:** [Nama Mahasiswa]
-* **NIM:** [NIM Mahasiswa]
-* **Kelas / No. Presensi:** [1A / 01]
-
----
-
-## 1: TUJUAN PRAKTIKUM
-
-Berikut adalah tujuan pelaksanaan praktikum pada bab ini:
-
-1. Mahasiswa mampu memahami konsep dasar struktur pemilihan (*conditional statement*).
-2. Mahasiswa mampu mengimplementasikan perintah `if`, `if-else`, dan `switch-case` pada Java.
-3. Mahasiswa mampu menganalisis alur eksekusi logika percabangan.
+**Student Identity:**
+* **Name:** Fathan Nur Hidayat
+* **NIM:** 26410702084
+* **Class / Student Attendance:** 1I / 12
 
 ---
 
-## 2: HASIL PERCOBAAN & ANALISIS
+## 1: OBJECTIVE
 
-### 2.1 Percobaan 1: Penerapan Struktur IF-ELSE
+The following are the objectives of the practical work in this chapter:
+
+1. Students can solve problems and case studies using nested selection statements.
+2. Students can apply nested selection statements in Java programs.
+3. Students can apply the logical operators &&, ||, and ! in selection structures.
+
+---
+
+## 2: LABS & ACTIVITIES
+
+### 2.1 Experiment 1: Nested IF to Check Thesis Exam Requirements.
 
 Ini adalah paragraf contoh yang menjelaskan gambaran singkat mengenai percobaan pertama. Pada bagian ini, mahasiswa diminta untuk menerapkan kondisi `if-else` sederhana.
 
-#### 2.1.1 Kode Program Java
+#### 2.1.1 Program Code Java
 ```java
-// Contoh kode program dummy Percobaan 1
+
+package Week6;
 import java.util.Scanner;
 
-public class Percobaan1 {
+public class NestedThesisExam12 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Masukkan nilai: ");
-        int nilai = sc.nextInt();
+        Scanner input = new Scanner(System.in);
+    
+        String message;
+        System.out.print("Has the student cleared all penalties? (Yes/No): ");
+        String noPenalty = input.nextLine().trim();
+        
+        System.out.print("Enter the number of guidance sessions with Supervisor 1: ");
+        int guidanceCount1 = input.nextInt();
+        System.out.print("Enter the number of guidance sessions with Supervisor 2: ");
+        int guidanceCount2 = input.nextInt();
 
-        if (nilai >= 75) {
-            System.out.println("Status: LULUS");
-        } else {
-            System.out.println("Status: TIDAK LULUS");
+        if(noPenalty.equalsIgnoreCase("Yes")) {
+            if(guidanceCount1 >= 8 && guidanceCount2 >= 4) {
+                message = "All requirements met. The student may register for the thesis exam";
+            }else if (guidanceCount1 < 8 && guidanceCount2 < 4) {
+                message = "Failed! Guidance sessions with Supervisor 1 are below 8 and Supervisor 2 are below 4";
+            }else if (guidanceCount1 < 8) {
+                message = "Failed! Guidance sessions with Supervisor 1 have not reached 8";
+            }else {
+                message = "Failed! Guidance sessions with Supervisor 2 have not reached 4";
+            }
+        }else {
+            message = "Failed! The student still has an outstanding penalty";
         }
+        System.out.println(message);
+        input.close();
     }
 }
+
 ```
 
 #### 2.1.2 Hasil Running / Screenshot Output
