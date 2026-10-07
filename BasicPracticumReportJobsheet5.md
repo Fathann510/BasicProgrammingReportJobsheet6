@@ -180,7 +180,7 @@ public class NestedLabAcces12 {
 
 #### 2.3.2 Execution Result / Screenshot Output
 The following is an example of the *output* display after the program is run.:
-
+![Experimen31Output](/Experiment3OutputJobsheer5.png)
 
 #### 2.2.3 Answers to Questions / Reflection Questions
 * **Question 1:** Why is the check hasLecturerPermit || isLabAssistant placed inside the first IF?
@@ -199,27 +199,109 @@ The following is an example of the *output* display after the program is run.:
 
 ## 3: ASSIGNMENT
 
-Berikut adalah daftar tugas yang dikerjakan pada Jobsheet ini:
+The following is a list of tasks to be performed in this Jobsheet:
 
-- [x] **Tugas 1:** Mengubah struktur `if-else` menjadi *Ternary Operator*.
-- [x] **Tugas 2:** Membuat program berdasarkan *Flowchart* penentuan SKS.
-- [ ] **Tugas 3:** Mengimplementasikan studi kasus parkir & antrean.
+- [x] **Task 1:** Implement the Flowchart from Exercise 2, Week 6. Bookstore discount system using Nested IF and logical operators 
+- [x] **Task 2:** Lab-assistant candidate selection system using nested selection and logical operators.
 
-### 3.1 Implementasi Kode Tugas
+### 3.1 Implementation Task Code
 
+#### Tugas 1: Bookstore Discount System
+#### 3.1.1 Program Code Java
 ```java
-// Contoh Kode Program Tugas Mandiri
-public class TugasMandiri {
+package Week6;
+import java.util.Scanner;
+
+public class Task1BookStoreDiscount12 {
     public static void main(String[] args) {
-        int sks = 20;
-        String status = (sks <= 24) ? "KRS Valid" : "Melebihi Batas";
-        System.out.println(status);
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Is the customer a member? (true/false): ");
+        boolean isMember = input.nextBoolean();
+        System.out.print("Total purchase (Rp): ");
+        int total = input.nextInt();
+
+        int discountPercent;
+        if (isMember) {
+            if (total >= 200000) {
+                discountPercent = 20;
+            } else if (total >= 100000) {
+                discountPercent = 10;
+            } else {
+                discountPercent = 5;
+            }
+        } else {
+            if (total >= 200000) {
+                discountPercent = 10;
+            } else if (total >= 100000) {
+                discountPercent = 5;
+            } else {
+                discountPercent = 0;
+            }
+        }
+
+        double discount = total * discountPercent / 100.0;
+        double finalPrice = total - discount;
+        System.out.println("Discount: " + discountPercent + "%");
+        System.out.println("Discount amount: Rp" + (long) discount);
+        System.out.println("Total Payment: Rp" + (long) finalPrice);
+
+        input.close();
+    }
+}
+```
+#### 3.1.2 Execution Result / Screenshot Output
+![Task1OutputBookStore](/Task1OutputBookStore.png)
+
+#### Task 2: Lab Assistant Candidate Selection
+
+Rules: (a) the student must be active and not under academic sanction; (b) the student must have a Basic Programming grade of at least 80, or a programming competency certificate; (c) the student is accepted if the interview score is at least 75; (d) the program shows the reason if the student fails at any stage.
+
+#### 3.2.1 Program Code Java
+```java
+package Week6;
+import java.util.Scanner;
+
+public class Task2AssistanceSelection12 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Is the student active? (true/false): ");
+        boolean isActive = input.nextBoolean();
+        System.out.print("Is the student under academic sanction? (true/false): ");
+        boolean isSanctioned = input.nextBoolean();
+
+        if (isActive && !isSanctioned) {
+            System.out.print("Grade in Basic Programming: ");
+            int grade = input.nextInt();
+            System.out.print("Has a programming competency certificate? (true/false): ");
+            boolean hasCertificate = input.nextBoolean();
+
+            if (grade >= 80 || hasCertificate) {
+                System.out.print("Interview score: ");
+                int interviewScore = input.nextInt();
+
+                if (interviewScore >= 75) {
+                    System.out.println("Accepted as lab assistant");
+                } else {
+                    System.out.println("Not accepted: interview score is below 75");
+                }
+            } else {
+                System.out.println("Failed: grade is below 80 and no programming competency certificate");
+            }
+        } else {
+            System.out.println("Failed: student is not active or is under academic sanction");
+        }
+        input.close();
     }
 }
 ```
 
+#### 3.1.2 Execution Result / Screenshot Output
+![Task2OutputLabAssistance](/Task2OutputLabAssistance.png)
+
 ---
 
-## 4: KESIMPULAN
+## 4: CONCLUSION
 
-Tuliskan paragraf kesimpulan di sini. Secara singkat, struktur pemilihan sangat penting digunakan untuk mengatur alur jalannya program (*flow control*) berdasarkan variabel atau pilihan yang ditentukan oleh pengguna.
+Nested IF evaluates conditions step by step, where the next condition is checked only if the previous one is satisfied. Each level can also provide a specific reason when a condition fails. The && operator requires all conditions to be true, || needs at least one condition to be true, while ! changes a boolean value to its opposite. Short-circuit evaluation stops checking once the final result is already known. By combining nested selection with logical operators, programs can be more organized and provide more specific output messages.
